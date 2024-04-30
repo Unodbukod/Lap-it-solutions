@@ -53,11 +53,8 @@ const Fourthsec = () => {
               src="/fourthsec.svg"
               alt="Image Description"
               width={500}
-              height={300}
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }} />
+              height={300} 
+              />
           </div>
         </section>
       </div>
