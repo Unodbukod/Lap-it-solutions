@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/legacy/image";
 import Card from "../components/card";
 import {
   Carousel,
@@ -71,18 +70,6 @@ const Features = () => {
           tailored user experience.
         </p>
       </div>
-      <div className="mt-12">
-        <Image
-          src="/computer.svg"
-          alt="image"
-          width={24}
-          height={24}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }} />
-      </div>
-      
       {isSmallScreen ? (
   <div className="px-5">
     <div className="overflow-x-auto flex flex-row gap-2 2xl:max-container max-w-[300px] max-h-none mt-10 mb-16">

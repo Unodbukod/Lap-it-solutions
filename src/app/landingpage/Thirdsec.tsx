@@ -31,7 +31,6 @@ const Thirdsection = () => {
               alt="Image Description"
               width={600}
               height={300}
-              layout="responsive"
             />
           </div>
         </section>
