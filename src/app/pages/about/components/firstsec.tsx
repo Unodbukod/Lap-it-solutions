@@ -7,7 +7,7 @@ const Firstsection = () => {
       <div className="flex">
         <div className="w-screen max-h-none sm:w-screen lg:w-1/2 relative">
           <div className="items-center ">
-            <div className="text-center mt-10 lg:text-start xl:ml-16 xl:mt-24  ">
+            <div className="text-center mt-10 lg:text-start lg:mt-36 xl:ml-16 xl:mt-36  ">
               <h1 className="text-[18px] font-extrabold mx-10 lg:ml-5 lg:mr-20 lg:text-[35px] lg:mt-20 xl:text-[48px] ">
                 WE ARE TEAM OF CREATORS & INVESTORS
               </h1>
@@ -18,7 +18,7 @@ const Firstsection = () => {
                 owners and operators for their ever-demanding operations.
               </h1>
             </div>
-            <div className="text-center lg:text-start  mt-10 lg:mt-32 xl:ml-16 xl:mt-[155px]">
+            <div className="text-center lg:text-start mt-10 lg:mt-48 xl:ml-16 xl:mt-[155px]">
               <div className="mx-5">
                 <h1 className="text-[18px] font-extrabold lg:text-[40px] xl:text-[48px]">
                   ESTABLISHED IN 2008, LAP I.T. Solutions Inc.
@@ -37,7 +37,7 @@ const Firstsection = () => {
                 </h1>
               </div>
             </div>
-            <div className="mt-10 lg:ml-12">
+            <div className="mt-10 lg:mt-24 xl:ml-10">
               <div className="flex flex-col items-center lg:flex lg:flex-row lg:items-start lg:gap-3 lg:mx-5 xl:ml-10 xl:mr-20">
                 <div className="text-center my-2">
                   <h1 className="text=[18px] font-bold">2008 </h1>
@@ -63,7 +63,7 @@ const Firstsection = () => {
         </div>
         <div className="lg:mr-10 xl:ml-20">
           {/* Image */}
-          <div className="hidden lg:block lg:w-[550px] lg:ml-14 lg:mt-5 xl:w-[600px] xl:mr-5 ">
+          <div className="hidden lg:block lg:w-[550px] lg:ml-14 xl:w-[600px] xl:mr-5 ">
             <Image
               src="/about/image.svg"
               width={1000}
@@ -74,7 +74,7 @@ const Firstsection = () => {
                 height: "auto",
               }} />
           </div>
-          <div className="hidden lg:block lg:w-[550px] lg:ml-14 lg:mt-5 xl:w-[600px] xl:mr-5 ">
+          <div className="hidden lg:block lg:w-[550px] lg:ml-14 lg:-translate-y-32 xl:w-[600px] xl:mr-5 ">
             <Image
               src="/about/image.svg"
               width={1000}

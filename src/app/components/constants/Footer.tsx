@@ -14,10 +14,6 @@ const Footer = () => {
           alt=""
           width={16}
           height={16}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
         />
       ),
     },
@@ -29,10 +25,6 @@ const Footer = () => {
           alt=""
           width={16}
           height={16}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
         />
       ),
     },
@@ -44,10 +36,6 @@ const Footer = () => {
           alt=""
           width={16}
           height={16}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
         />
       ),
     },
@@ -59,10 +47,6 @@ const Footer = () => {
           alt=""
           width={16}
           height={16}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
         />
       ),
     },
@@ -74,10 +58,6 @@ const Footer = () => {
           alt=""
           width={16}
           height={16}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
         />
       ),
     },

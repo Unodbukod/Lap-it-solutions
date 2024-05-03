@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button";
 const Contact = () => {
   return (
     <div className="select-none">
-      
+      <h1 className="text-green-500 sm:text-red-500 md:text-fuchsia-700 xl:text-blue-600">
+        responsive
+      </h1>
       <section className="mb-10">
         <div className="flex flex-col items-center pt-11">
           <div className="bg-blue-400 w-[395px] sm:w-[620px] lg:h-[182px] lg:w-[820px] 2xl:w-[1020px] 2xl:h-[210px] h-[250px] rounded-sm flex  drop-shadow-lg pt-16 justify-center items-center">

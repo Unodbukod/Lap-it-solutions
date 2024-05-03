@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/legacy/image";
-// import Map from "./map";
+import dynamic from 'next/dynamic';
+const Map = dynamic(() => import('@/components/map/map'), { ssr: false });
 
 const Thirdsection = () => {
   return (
@@ -16,20 +17,17 @@ const Thirdsection = () => {
             </div>
           </div>
           <div className="flex flex-col xl:flex-row">
-            <div className="w-screen h-[60vh] sm:h-[100vh] xl:w-1/2 relative ">
-            <div className="flex items-center justify-center mt-5 mb-6 mx-3 xl:mt-12">
+            <div className="w-screen h-[115vh] sm:h-[115vh] xl:h-[150vh] xl:w-1/2 relative ">
+            <div className="flex items-center justify-center mx-3 ">
               <Image
                 src="/about/image2.svg"
                 width={600}
                 height={600}
                 alt=""
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                }} />
+                />
               </div>
-            <div className="flex items-center justify-center my-6 mx-3">
-              {/* <Map/> */}
+            <div className="flex items-center justify-center mx-3 xl:-translate-y-10">
+              <Map/>
             </div>
             </div>
 
@@ -38,7 +36,7 @@ const Thirdsection = () => {
               {/* Form or content */}
               <div className="mt-10">
                 <div className=" flex-col items-center text-center">
-                  <div className="">
+                  <div className="lg:mt-20">
                       <h1 className="font-extrabold text-[14px] lg:text-[18px] xl:text-[30px]">OUR LOCATION</h1>
                       <h1 className="text-gray-500 text-[10px] mt-1 lg:text-[13px]">Door 2, Marcela Bldg., J. Palma Gil St., Davao City, 8000, Philippines</h1>
                   </div>
