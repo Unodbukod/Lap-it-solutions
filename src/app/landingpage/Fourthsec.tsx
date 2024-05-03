@@ -21,7 +21,7 @@ const Fourthsec = () => {
       <div className="flex flex-col lg:flex-row xl:flex-row mt-24">
         
         <section className="mx-2 lg:w-1/2 xl:w-1/2 xl:mr-20">
-          <h1 className="text-slate-600 mb-8 mt-20 text-md text-justify mx-auto max-w-none lg:mx-3 lg:max-w-lg ">
+          <h1 className="text-slate-600 mb-8 mt-20 text-sm text-justify mx-auto max-w-none lg:mx-3 lg:max-w-lg ">
             Experience peace of mind with our secure cloud application hosting
             services, providing a reliable and scalable platform to host your
             applications with top-notch security measures, ensuring data

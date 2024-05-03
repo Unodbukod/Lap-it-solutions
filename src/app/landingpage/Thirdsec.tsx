@@ -31,34 +31,37 @@ const Thirdsection = () => {
               alt="Image Description"
               width={600}
               height={300}
+              layout="responsive"
             />
           </div>
         </section>
         <section className="flex flex-col items-start sm:items-center md:items-center lg:w-1/2 xl:w-1/2 lg:pb-32 xl:pb-32">
-          <h1 className="text-slate-600 mx-2 text-md text-justify sm:text-center lg:text-sm lg:text-start xl:text-start lg:w-full lg:mx-auto lg:max-w-[450px] xl:text-lg xl:w-full xl:mx-auto xl:max-w-[450px] xl:-translate-x-12">
-            Lorem ipsum dolor sit amet consectetur. Lacinia risus quam morbi
-            donec netus accumsan elementum. Viverra amet phasellus tellus
-            laoreet fringilla. Lorem urna suspendisse sit ac convallis eget
-            lacus non.
+          <h1 className="text-slate-600 mx-2 text-xs text-justify sm:text-center lg:text-sm lg:text-start xl:text-start lg:w-full lg:mx-auto lg:max-w-[450px] xl:text-sm xl:w-full xl:mx-auto xl:max-w-[450px] xl:-translate-x-12">
+            Gain immediate access to essential business solutions with our
+            streamlined services, ensuring efficiency and convenience at every
+            step. Our platform provides quick and seamless access to tools,
+            resources, and support tailored to meet your specific business
+            needs. Experience a hassle-free way to manage and grow your business
+            with our quick access solutions.
           </h1>
           <div className="mt-3 flex flex-col justify-center items-center lg:mt-7 lg:items-start lg:justify-start lg:pr-56 xl:pr-72 lg:text-sm">
             <div className="font-semibold text-slate-600 lg:text-xs lg:w-56 xl:text-md">
               <div className="hidden lg:block xl:block">
                 <div className="flex items-center">
                   <FcOk />
-                  <h1 className="ml-3">Lorem ipsum dolor sit</h1>
+                  <h1 className="ml-3">POS System</h1>
                 </div>
                 <div className="flex items-center mt-4">
                   <FcOk />
-                  <h1 className="ml-3">Lorem urna suspendisse</h1>
+                  <h1 className="ml-3">Property Management System</h1>
                 </div>
                 <div className="flex items-center mt-4">
                   <FcOk />
-                  <h1 className="ml-3">Lacinia risus quam </h1>
+                  <h1 className="ml-3">POS Hotel</h1>
                 </div>
                 <div className="flex items-center mt-4">
                   <FcOk />
-                  <h1 className="ml-3">Volutpat nulla lorem vitae dolo</h1>
+                  <h1 className="ml-3">POS Food and Beverages</h1>
                 </div>
               </div>
               <div className="flex mt-6 mx-2 lg:mx-0 xl:mx-0 xl:items-center xl:mt-6">

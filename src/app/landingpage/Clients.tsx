@@ -17,7 +17,7 @@ export function InfiniteMovingCardsDemo() {
 
   return (
     <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-        <div className="pb-10">
+        <div className="pb-5">
             <h1 className="font-extrabold text-5xl">
                 OUR {''}
                 <span className="bg-red-600 text-white p-1 px-3 md:p-1 md:px-4 rounded-md inline-block">
