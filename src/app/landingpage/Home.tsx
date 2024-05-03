@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/legacy/image";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -32,9 +33,11 @@ const Home = () => {
               <button className="border w-44 h-10 rounded-md border-white text-white font-semibold hover:bg-white hover:text-black md:h-12 max-w-none">
                 Get Started
               </button>
+              <Link href="https://www.messenger.com/t/2092237181053883">
               <button className="border w-44 h-10 rounded-md border-white text-white font-semibold hover:bg-white hover:text-black md:h-12 max-w-none">
                 Book a demo
               </button>
+              </Link>
             </div>
           </div>
 

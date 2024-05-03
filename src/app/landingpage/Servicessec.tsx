@@ -26,6 +26,7 @@ const Servicessec = () => {
             alt="Image Description"
             width={600}
             height={300}
+            layout="responsive"
           />
         </section>
         <section className="max-w-full text-center md:text-left md:ml-6 mt-4 md:mt-0">

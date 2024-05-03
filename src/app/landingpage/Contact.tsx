@@ -8,7 +8,7 @@ const Contact = () => {
     <div className="select-none">
       <section className="mb-10">
         <div className="flex flex-col items-center">
-          <div className="bg-blue-400 w-[1100px] h-[282px] rounded-sm flex items-center text-nowrap drop-shadow-2xl pt-20 ml-7">
+          <div className="bg-blue-400 w-[1100px] h-[282px] rounded-md flex items-center text-nowrap drop-shadow-2xl pt-20 ml-7">
             <div className="text-white text-4xl font-extrabold ml-9 mb-24">
               Stay Informed:
               <p className="text-base mt-4 font-normal">
@@ -16,7 +16,7 @@ const Contact = () => {
                 your inbox.
               </p>
               <div className="flex w-[400px] h-[38px] space-x-2 text-black font-normal mt-5">
-                <Input type="email" placeholder="Email" />
+                <Input type="email" placeholder="Email"/>
                 <Button className="bg-blue-600" type="submit">
                   Submit
                 </Button>

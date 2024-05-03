@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/legacy/image";
+import Link from "next/link";
 
 const Fourthsec = () => {
   return (
@@ -29,6 +30,7 @@ const Fourthsec = () => {
           </h1>
           <div className="font-semibold text-slate-500">
             <div className="flex items-center mb-10">
+            <Link href="https://www.facebook.com/lapitsolutions">
               <button className="bg-blue-600 w-40 h-10  hover:bg-blue-800 transition-all text-white font-normal flex items-center justify-center rounded-md lg:ml-2 xl:ml-2">
                 Learn More
                 <svg
@@ -44,6 +46,7 @@ const Fourthsec = () => {
                   />
                 </svg>
               </button>
+              </Link>
             </div>
           </div>
         </section>

@@ -26,7 +26,7 @@ export function InfiniteMovingCardsDemo() {
             </h1>
             
         </div>
-        <div className="pt-10">
+        <div className="pt-6">
       <InfiniteMovingCards items={Clients} direction="right" speed="normal" />
       </div>
     </div>
