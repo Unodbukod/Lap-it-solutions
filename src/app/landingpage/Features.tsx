@@ -13,7 +13,7 @@ import { useMediaQuery } from "@react-hook/media-query";
 const Features = () => {
   const card = [
     {
-      title: "Point of Sales",
+      title: "Point of Sale",
       description:
         "Elevate your business with our intuitive Point of Sale system, simplifying transactions and enhancing customer experience",
       iconSrc: "/pos.svg",
