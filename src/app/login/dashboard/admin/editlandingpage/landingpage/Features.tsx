@@ -258,11 +258,14 @@ const Features = () => {
 
       <Carousel>
         <CarouselContent>
+
           {card.map((car, index) => (
             <CarouselItem
               className="w-[200px] mt-20 pl-10 mb-14 basis-1/3  "
               key={index}
             >
+              <Button>DELETE</Button>
+              <Button>EDIT</Button>
               <Card
                 title={car.title}
                 description={car.description}

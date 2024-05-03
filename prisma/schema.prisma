@@ -49,13 +49,6 @@ model LandingpagehomeContent {
   UpdateAt    DateTime @updatedAt
 }
 
-model LandingpageImages {
-  id        Int      @id @default(autoincrement())
-  Image     String
-  createdAt DateTime @default(now())
-  UpdateAt  DateTime @updatedAt
-}
-
 model LandingpageCards {
   id        Int      @id @default(autoincrement())
   title     String
@@ -81,17 +74,56 @@ model PricingTable {
 }
 
 model PricingCards {
-  id        Int      @id @default(autoincrement())
-  title     String
-  subtitle  String
-  price     Int
-  subtitle2 String
-  price2    Int
-  packageone  String
-  packagetwo  String
-  packagethree  String
+  id           Int      @id @default(autoincrement())
+  title        String
+  subtitle     String
+  price        Int
+  subtitle2    String
+  price2       Int
+  packageone   String
+  packagetwo   String
+  packagethree String
   packagefour  String
   packagefive  String
+  createdAt    DateTime @default(now())
+  UpdateAt     DateTime @updatedAt
+}
+
+model AboutContent {
+  id        Int      @id @default(autoincrement())
+  content   String
   createdAt DateTime @default(now())
   UpdateAt  DateTime @updatedAt
+}
+
+model FaqContent {
+  id        Int      @id @default(autoincrement())
+  content   String
+  createdAt DateTime @default(now())
+  UpdateAt  DateTime @updatedAt
+}
+
+model AboutLocation {
+  id      Int    @id @default(autoincrement())
+  content String
+}
+
+model AboutopeningHours {
+  id      Int    @id @default(autoincrement())
+  content String
+}
+
+model AboutContact {
+  id           Int    @id @default(autoincrement())
+  simcardandnumber String
+}
+
+model AboutGcash {
+  id      Int    @id @default(autoincrement())
+  content String
+}
+
+model AboutEmail {
+  id      Int    @id @default(autoincrement())
+  content String
 }

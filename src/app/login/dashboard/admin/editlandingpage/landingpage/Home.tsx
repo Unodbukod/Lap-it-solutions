@@ -47,7 +47,7 @@ const Home = () => {
         }
         setHomeContents(contents);
       } catch (error) {
-        console.error("Error fetching Homw content:", error);
+        console.error("Error fetching Home content:", error);
       }
     };
 

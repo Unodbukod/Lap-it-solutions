@@ -1,7 +1,40 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 import Image from "next/legacy/image";
 
+interface AboutContent {
+  id: number;
+  content: string;
+}
+
 const Firstsection = () => {
+  const [aboutContent, setAboutcontent] = useState<{
+    [key: number]: string;
+  }>({});
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "/api/landingpagecontent/aboutcontent"
+        );
+        const data = await response.json();
+        const about: AboutContent[] = data.aboutContent;
+
+        // Create an object to store Home contents by ID
+        const contents: { [key: number]: string } = {};
+        for (const abouts of about) {
+          contents[abouts.id] = abouts.content;
+        }
+        setAboutcontent(contents);
+      } catch (error) {
+        console.error("Error fetching Home content:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div>
       <div className="flex">
@@ -9,31 +42,21 @@ const Firstsection = () => {
           <div className="items-center ">
             <div className="text-center mt-10 lg:text-start lg:mt-36 xl:ml-16 xl:mt-36  ">
               <h1 className="text-[18px] font-extrabold mx-10 lg:ml-5 lg:mr-20 lg:text-[35px] lg:mt-20 xl:text-[48px] ">
-                WE ARE TEAM OF CREATORS & INVESTORS
+                {aboutContent[1]}
               </h1>
               <h1 className="text-[16px] mt-3 mx-5">
-                LAP I.T. Solutions Inc. is a one-stop technical company and is
-                capable of handling various advance business solutions. Our
-                Software and Hardware is trusted and used by many business
-                owners and operators for their ever-demanding operations.
+              {aboutContent[2]}
               </h1>
             </div>
-            <div className="text-center lg:text-start mt-10 lg:mt-48 xl:ml-16 xl:mt-[155px]">
+            <div className="text-center lg:text-start mt-10 lg:mt-48 xl:ml-16 xl:mt-[100px]">
               <div className="mx-5">
                 <h1 className="text-[18px] font-extrabold lg:text-[40px] xl:text-[48px]">
-                  ESTABLISHED IN 2008, LAP I.T. Solutions Inc.
+                {aboutContent[3]}
                 </h1>
               </div>
               <div className="mx-5">
                 <h1 className="text-[16px]">
-                  Started a small computer and laptop repair shop with
-                  specialized in repairing and maintaining laptops and PC’s. We
-                  are one of the competitive technology business here in Davao
-                  City. Until we had our break in 2012 which a childhood friend
-                  from Manila (IBS Worldwide) entrusted us their software, and
-                  proving us as a developer and software technician to upgrade
-                  our business from repair shop to a software and hardware
-                  store.
+                 {aboutContent[4]}
                 </h1>
               </div>
             </div>
