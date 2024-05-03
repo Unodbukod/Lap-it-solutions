@@ -69,10 +69,10 @@ const firstsec = () => {
                   <h1 className="pt-4">Demo</h1>
                   <p className="pt-4">
                     The system demo is all about making it easy for our clients.
-                    We'll do it wherever suits them best – whether that's at
+                    Well do it wherever suits them best  whether thats at
                     their place or ours. If they prefer coming to our office,
-                    we're more than happy to host them there and show them how
-                    everything works. It's all about making sure they get what
+                    were more than happy to host them there and show them how
+                    everything works. Its all about making sure they get what
                     they need, in a way that works for them.
                   </p>
                 </AccordionContent>
@@ -87,11 +87,11 @@ const firstsec = () => {
                 <AccordionContent className="px-5">
                   <h1 className="pt-4">Technical Support</h1>
                   <p className="pt-4">
-                    Our technical support is there to help you, whether it's
+                    Our technical support is there to help you, whether its
                     from a distance or in person. If you need assistance, we can
                     troubleshoot and resolve issues remotely, saving you time
                     and hassle. Alternatively, if the situation requires a
-                    hands-on approach, we're more than willing to come to your
+                    hands-on approach, were more than willing to come to your
                     location to provide the support you need. Our goal is to
                     ensure that your technical issues are addressed promptly and
                     efficiently, no matter where you are.
