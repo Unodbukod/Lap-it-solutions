@@ -240,7 +240,7 @@ const Features = () => {
                 </div>
                 <div className="flex items-center justify-center translate-x-[13px] mt-10">
                   <Button
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={() => setIsModalOpen2(true)}
                     className="w-[300px] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                   >
                     Learn More
@@ -341,7 +341,7 @@ const Features = () => {
                 </div>
                 <div className="flex items-center justify-center translate-x-[13px] mt-10">
                   <Button
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={() => setIsModalOpen3(true)}
                     className="w-[300px] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                   >
                     Learn More

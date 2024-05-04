@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import Image from "next/legacy/image";
 import {
@@ -18,6 +17,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import UpdateContentForm from "@/components/form/landingpage/editcontent";
+import Link from "next/link";
 
 interface HomeContent {
   id: number;
@@ -64,6 +64,9 @@ const Thirdsection = () => {
   };
   const getId17 = () => {
     return "17";
+  };
+  const getId26 = () => {
+    return "26";
   };
 
   return (
@@ -195,23 +198,43 @@ const Thirdsection = () => {
         </Accordion>
       </div>
       <div className="flex flex-row mt-24">
-        <section className="w-1/2 mr-20">
-          <h1 className="text-slate-600 text-start mb-8 mt-20">
-            Lorem ipsum dolor sit amet consectetur. Lacinia risus
-            <strong>
-              quam
-              <br />
-              morbi donec netus accumsan elementum.
-            </strong>{" "}
-            Viverra amet
-            <br />
-            phasellus tellus laoreet fringilla. Lorem urna suspendisse sit ac
-            <br />
-            convallis eget lacus non.
-          </h1>
-          <div className="font-semibold text-slate-600">
-            <div className="flex items-center">
-              <button className="bg-blue-600 w-40 h-10 hover:bg-blue-800 transition-all text-white font-normal flex items-center justify-center rounded-md">
+      <section className="mx-2 lg:w-1/2 xl:w-1/2 xl:mr-20">
+          <div className="text-center text-sm mt-7 mx-2 xl:text-sm">
+            <Accordion type="single" collapsible>
+              <AccordionItem
+                value="item-1"
+                className="items-center justify-center flex"
+              >
+                <AccordionTrigger>
+                <h1 className="text-slate-600 mb-8 mt-20 text-sm text-justify mx-auto max-w-none lg:mx-3 lg:max-w-lg ">
+                    {homeContents[26]}
+                  </h1>
+                </AccordionTrigger>
+                <AccordionContent>
+                  {/* BUTTON EDIT */}
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline">Edit</Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle>Edit Content</DialogTitle>
+                        <DialogDescription>
+                          Make changes to this content here.
+                        </DialogDescription>
+                      </DialogHeader>
+                      {/* CONTENT */}
+                      <UpdateContentForm getId={getId26} />
+                    </DialogContent>
+                  </Dialog>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+          <div className="font-semibold text-slate-500">
+            <div className="flex items-center mb-10">
+            <Link href="https://www.facebook.com/lapitsolutions">
+              <button className="bg-blue-600 w-40 h-10  hover:bg-blue-800 transition-all text-white font-normal flex items-center justify-center rounded-md lg:ml-2 xl:ml-2">
                 Learn More
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -226,6 +249,7 @@ const Thirdsection = () => {
                   />
                 </svg>
               </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -238,8 +262,9 @@ const Thirdsection = () => {
               height={300}
               style={{
                 maxWidth: "100%",
-                height: "auto"
-              }} />
+                height: "auto",
+              }}
+            />
           </div>
         </section>
       </div>

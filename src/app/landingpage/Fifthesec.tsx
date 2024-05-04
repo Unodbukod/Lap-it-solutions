@@ -1,99 +1,386 @@
-import React from "react";
-import Card from "./constants/card";
-import { FcCheckmark, FcMinus } from "react-icons/fc";
+"use client"
 
+import React, { useEffect, useState } from "react";
+import { FcCheckmark } from "react-icons/fc";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+
+interface HomeContent {
+  id: number;
+  contentName: string;
+  content: string;
+}
+
+interface pricingcardContent {
+  id: number;
+  title: string;
+  subtitle: string;
+  price: string;
+  subtitle2: string;
+  price2: string;
+  packageone: string;
+  packagetwo: string;
+  packagethree: string;
+  packagefour: string;
+  packagefive: string;
+}
 
 const Fifthesec = () => {
-  const card = [
-    {
-      title: "STARTER",
-      smallDescription: "First you can try it for free",
-      price: "₱ 7,500",
-    },
-    {
-      title: "STANDARD",
-      smallDescription: "First you can try it for free",
-      price: "₱ 10,500",
-    },
-    {
-      title: "PREMIUM",
-      smallDescription: "First you can try it for free",
-      price: "₱ 15,500",
-    },
-  ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [isModalOpen3, setIsModalOpen3] = useState(false);
+  const [homeContents, setHomeContents] = useState<{
+    [key: number]: string;
+  }>({});
+  const [pricingCardContent, setPricingCardContent] = useState<
+    pricingcardContent[] | null
+  >(null);
 
-  const getTitleColorClass = (title: string): string => {
-    switch (title) {
-      case "STARTER":
-        return "text-green-500";
-      case "STANDARD":
-        return "text-orange-500";
-      case "PREMIUM":
-        return "text-red-500";
-      default:
-        return "text-black";
-    }
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "/api/landingpagecontent/landingpagehomecontent"
+        );
+        const data = await response.json();
+        const homes: HomeContent[] = data.homeContent;
 
-  const renderIcons = (title: string): { icon: React.ReactElement; text: string }[] => {
-    switch (title) {
-      case "STARTER":
-        return [
-          { icon: <FcCheckmark style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit" },
-          { icon: <FcMinus style={{ fontSize: "24px" }} />, text: "Amet consectetur" },
-          { icon: <FcMinus style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit amet" },
-          { icon: <FcMinus style={{ fontSize: "24px" }} />, text: "Volutpat nulla lorem vitae" },
-          { icon: <FcMinus style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit amet" },
-        ];
-      case "STANDARD":
-        return [
-          { icon: <FcCheckmark style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit" },
-          { icon: <FcCheckmark style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit" },
-          { icon: <FcCheckmark style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit" },
-          { icon: <FcMinus style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit amet" },
-          { icon: <FcMinus style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit amet" },
-        ];
-      case "PREMIUM":
-        return [
-          { icon: <FcCheckmark style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit" },
-          { icon: <FcCheckmark style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit" },
-          { icon: <FcCheckmark style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit" },
-          { icon: <FcCheckmark style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit" },
-          { icon: <FcCheckmark style={{ fontSize: "24px" }} />, text: "Lorem ipsum dolor sit" },
-        ];
-      default:
-        return [];
-    }
-  };
+        // Create an object to store Home contents by ID
+        const contents: { [key: number]: string } = {};
+        for (const home of homes) {
+          contents[home.id] = home.content;
+        }
+        setHomeContents(contents);
+      } catch (error) {
+        console.error("Error fetching Home content:", error);
+      }
+    };
+
+    fetchData();
+
+    const fetchDataPricingCard = async () => {
+      try {
+        const response = await fetch(
+          "/api/landingpagecontent/pricingcontent/cards"
+        );
+        const data = await response.json();
+        const pricingcardContent: pricingcardContent[] =
+          data.pricingtcardsContent;
+        setPricingCardContent(pricingcardContent);
+      } catch (error) {
+        console.error("Error fetching feature content:", error);
+      }
+    };
+
+    fetchDataPricingCard();
+  }, []);
+
+  if (!pricingCardContent) {
+    return <div>No Card Content</div>;
+  }
+
+  const Card = pricingCardContent.find((card) => card.id === 1);
+  const Card2 = pricingCardContent.find((card2) => card2.id === 2);
+  const Card3 = pricingCardContent.find((card3) => card3.id === 3);
 
   return (
     <div className="select-none bg-blue-50">
       <div className="flex flex-col items-center pt-16 text-center">
         <div className="font-extrabold text-3xl lg:text-5xl xl:text-5xl">
-          <h1 className="mt-4">LET’S KNOW THE</h1>
+          <h1 className="mt-4">{homeContents[18]}</h1>
           <h1 className="mt-2">
             <span className="bg-red-600 text-white p-1 px-4 rounded-md inline-block">
-              PRICING PLAN
+            {homeContents[19]}
             </span>{" "}
-            FOR YOU
+            {homeContents[20]}
           </h1>
         </div>
         <div className="text-center mt-7 text-sm lg:text-base xl:text-base">
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
+          <p>{homeContents[27]}</p>
         </div>
       </div>
-      <section className="overflow-x-auto flex flex-row gap-2 2xl:max-container xl:py-10 xl:px-10 xl:2xl:max-container xl:relative xl:flex xl:flex-row xl:justify-center xl:gap-16 xl:overflow-hidden">
-        {card.map((car, index) => (
-          <div className="space-x-4 mx-3 mb-10 mt-20 lg:mt-10 xl:mt-10 lg:mx-2 xl:mx-2" key={index}>
-            <Card
-              title={car.title}
-              smallDescription={car.smallDescription}
-              price={car.price}
-              className={getTitleColorClass(car.title)}
-              icons={renderIcons(car.title)}
-            />
+      <section className="overflow-x-auto py-10 px-10 2xl:max-container relative flex flex-row justify-center gap-16">
+        <div className="flex flex-col">
+          <div className="flex flex-row mt-10">
+            <div>
+              <div
+                className={`w-[400px] h-[713px] border-md bg-white mx-3 rounded-lg flex flex-col items-start pl-4 pt-5 group border-2 hover:border-blue-500 drop-shadow-2xl`}
+              >
+                <div className="ml-5">
+                  <h1 className="text-blue-600 text-[48px] ml-6 mt-4">
+                    {Card?.title}
+                  </h1>
+                  <h1 className="text-black text-[18px] ml-6 mt-4">
+                    {Card?.subtitle}
+                  </h1>
+                  <h1 className="text-black text-[48px] ml-6 ">
+                    ₱{Card?.price}
+                  </h1>
+                  <h1 className="text-black text-[18px] ml-6 mt-4">
+                    {Card?.subtitle2}
+                  </h1>
+                  <h1 className="text-black text-[48px] ml-6 ">
+                    ₱{Card?.price2}
+                  </h1>
+                  <div className="space-y-5 mt-9">
+                    <div className="flex space-x-5 ">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card?.packageone}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card?.packagetwo}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card?.packagethree}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card?.packagefour}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card?.packagefive}</h1>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center translate-x-[13px] mt-10">
+                    <Button
+                      onClick={() => setIsModalOpen(true)}
+                      className="w-[300px] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                      Learn More
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal */}
+              {isModalOpen && (
+                <div className="fixed z-50 inset-0 overflow-y-auto bg-black bg-opacity-40">
+                  <div className="flex items-center justify-center min-h-screen">
+                    <div className="relative bg-gray-200 rounded-lg">
+                      <Button
+                        onClick={() => setIsModalOpen(false)}
+                        className="absolute top-0 right-0 m-3 text-gray-700 hover:text-gray-900"
+                      >
+                        <svg
+                          className="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </Button>
+                      <Image
+                        src="/Retail.svg"
+                        alt="Your Image"
+                        className="rounded-lg"
+                        width={600}
+                        height={600}
+                        style={{
+                          maxWidth: "100%",
+                          height: "auto",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div>
+              <div
+                className={`w-[400px] h-[713px] border-md bg-white mx-3 rounded-lg flex flex-col items-start pl-4 pt-5 group border-2 hover:border-blue-500 drop-shadow-2xl`}
+              >
+                <div className="ml-5">
+                  <h1 className="text-blue-600 text-[48px] ml-6 mt-4">
+                    {Card2?.title}
+                  </h1>
+                  <h1 className="text-black text-[18px] ml-6 mt-4">
+                    {Card2?.subtitle}
+                  </h1>
+                  <h1 className="text-black text-[48px] ml-6 ">
+                    ₱{Card2?.price}
+                  </h1>
+                  <h1 className="text-black text-[18px] ml-6 mt-4">
+                    {Card2?.subtitle2}
+                  </h1>
+                  <h1 className="text-black text-[48px] ml-6 ">
+                    ₱{Card2?.price2}
+                  </h1>
+                  <div className="space-y-5 mt-9">
+                    <div className="flex space-x-5 ">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card2?.packageone}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card2?.packagetwo}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card2?.packagethree}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card2?.packagefour}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card2?.packagefive}</h1>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center translate-x-[13px] mt-10">
+                    <Button
+                      onClick={() => setIsModalOpen2(true)}
+                      className="w-[300px] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                      Learn More
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal */}
+              {isModalOpen2 && (
+                <div className="fixed z-50 inset-0 overflow-y-auto bg-black bg-opacity-40">
+                  <div className="flex items-center justify-center min-h-screen">
+                    <div className="relative bg-gray-200 rounded-lg">
+                      <Button
+                        onClick={() => setIsModalOpen2(false)}
+                        className="absolute top-0 right-0 m-3 text-gray-700 hover:text-gray-900"
+                      >
+                        <svg
+                          className="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </Button>
+                      <Image
+                        src="/Inventory.png"
+                        alt="Your Image"
+                        className="rounded-lg "
+                        width={0}
+                        height={0}
+                        style={{
+                          maxWidth: "100%",
+                          height: "auto",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div>
+              <div
+                className={`w-[400px] h-[713px] border-md bg-white mx-3 rounded-lg flex flex-col items-start pl-4 pt-5 group border-2 hover:border-blue-500 drop-shadow-2xl`}
+              >
+                <div className="ml-5">
+                  <h1 className="text-blue-600 text-[48px] ml-6 mt-4">
+                    {Card3?.title}
+                  </h1>
+                  <h1 className="text-black text-[18px] ml-6 mt-4">
+                    {Card3?.subtitle}
+                  </h1>
+                  <h1 className="text-black text-[48px] ml-6 ">
+                    ₱{Card3?.price}
+                  </h1>
+                  <h1 className="text-black text-[18px] ml-6 mt-4">
+                    {Card3?.subtitle2}
+                  </h1>
+                  <h1 className="text-black text-[48px] ml-6 ">
+                    ₱{Card3?.price2}
+                  </h1>
+                  <div className="space-y-5 mt-9">
+                    <div className="flex space-x-5 ">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card3?.packageone}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card3?.packagetwo}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card3?.packagethree}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card3?.packagefour}</h1>
+                    </div>
+                    <div className="flex space-x-5">
+                      <FcCheckmark style={{ fontSize: "24px" }} />
+                      <h1>{Card3?.packagefive}</h1>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center translate-x-[13px] mt-10">
+                    <Button
+                      onClick={() => setIsModalOpen3(true)}
+                      className="w-[300px] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                      Learn More
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal */}
+              {isModalOpen3 && (
+                <div className="fixed z-50 inset-0 overflow-y-auto bg-black bg-opacity-40">
+                  <div className="flex items-center justify-center min-h-screen">
+                    <div className="relative bg-gray-200 rounded-lg">
+                      <Button
+                        onClick={() => setIsModalOpen3(false)}
+                        className="absolute top-0 right-0 m-3 text-gray-700 hover:text-gray-900"
+                      >
+                        <svg
+                          className="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </Button>
+                      <Image
+                        src="/Food.png"
+                        alt="Your Image"
+                        className="rounded-lg "
+                        width={0}
+                        height={0}
+                        style={{
+                          maxWidth: "100%",
+                          height: "auto",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-        ))}
+        </div>
+        {/* PRICING CARDS */}
       </section>
     </div>
   );

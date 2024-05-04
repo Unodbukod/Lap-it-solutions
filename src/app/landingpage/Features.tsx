@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/card";
 import {
   Carousel,
@@ -10,7 +10,40 @@ import {
 } from "@/components/ui/carousel";
 import { useMediaQuery } from "@react-hook/media-query";
 
+interface HomeContent {
+  id: number;
+  contentName: string;
+  content: string;
+}
+
 const Features = () => {
+  const [homeContents, setHomeContents] = useState<{
+    [key: number]: string;
+  }>({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "/api/landingpagecontent/landingpagehomecontent"
+        );
+        const data = await response.json();
+        const homes: HomeContent[] = data.homeContent;
+
+        // Create an object to store Home contents by ID
+        const contents: { [key: number]: string } = {};
+        for (const home of homes) {
+          contents[home.id] = home.content;
+        }
+        setHomeContents(contents);
+      } catch (error) {
+        console.error("Error fetching Home content:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const card = [
     {
       title: "Point of Sale",
@@ -56,18 +89,16 @@ const Features = () => {
     <div className="flex flex-col items-center pt-20 select-none bg-blue-50">
       <div className="font-extrabold text-4xl text-center sm:text-5xl md:text-6xl">
         <h1>
-          HIGH -{" "}
+        {homeContents[6]}{" "}
           <span className="bg-red-600 text-white p-1 px-4 rounded-md inline-block">
-            IMPACT
+          {homeContents[7]}
           </span>{" "}
-          FEATURES
+          {homeContents[8]}
         </h1>
       </div>
       <div className="text-center mt-7 mx-3">
         <p>
-          Our impactful features are <strong>intricately designed</strong> to
-          seamlessly align with your workflow, ensuring a highly effective and
-          tailored user experience.
+        {homeContents[9]}
         </p>
       </div>
       {isSmallScreen ? (

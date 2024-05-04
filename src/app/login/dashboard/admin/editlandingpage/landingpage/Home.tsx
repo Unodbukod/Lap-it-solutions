@@ -210,7 +210,7 @@ const Home = () => {
             <Accordion type="single" collapsible>
               <AccordionItem
                 value="item-1"
-                className="items-center flex"
+                className="items-center"
               >
                 <AccordionTrigger>
                 <h1 className="text-[16px] text-white">{homeContents[5]}</h1>

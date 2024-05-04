@@ -1,32 +1,62 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 import Image from "next/legacy/image";
 import Link from "next/link";
+interface HomeContent {
+  id: number;
+  contentName: string;
+  content: string;
+}
 
 const Fourthsec = () => {
+  const [homeContents, setHomeContents] = useState<{
+    [key: number]: string;
+  }>({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "/api/landingpagecontent/landingpagehomecontent"
+        );
+        const data = await response.json();
+        const homes: HomeContent[] = data.homeContent;
+
+        // Create an object to store feature contents by ID
+        const contents: { [key: number]: string } = {};
+        for (const home of homes) {
+          contents[home.id] = home.content;
+        }
+        setHomeContents(contents);
+      } catch (error) {
+        console.error("Error fetching feature content:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className="flex flex-col items-center mt-16 text-center bg-white select-none lg:-mt-16 xl:-mt-16">
       <div className="font-extrabold text-3xl lg:text-5xl xl:text-5xl">
         <h1 className="mt-4">
           <span className="bg-red-600 text-white p-1 px-4 rounded-md inline-block">
-            SECURE
+          {homeContents[14]}
           </span>{" "}
-          CLOUD
+          {homeContents[15]}
         </h1>
-        <h1 className="mt-2">APPLICATION HOSTING</h1>
+        <h1 className="mt-2">{homeContents[16]}</h1>
       </div>
       <div className="text-center mt-7 text-sm lg:text-base xl:text-base">
         <p>
-          Securely host your applications in the cloud for reliable and scalable performance, backed by top-notch security measures.
+        {homeContents[17]}
         </p>
       </div>
       <div className="flex flex-col lg:flex-row xl:flex-row mt-24">
         
         <section className="mx-2 lg:w-1/2 xl:w-1/2 xl:mr-20">
           <h1 className="text-slate-600 mb-8 mt-20 text-sm text-justify mx-auto max-w-none lg:mx-3 lg:max-w-lg ">
-            Experience peace of mind with our secure cloud application hosting
-            services, providing a reliable and scalable platform to host your
-            applications with top-notch security measures, ensuring data
-            integrity and availability for your business needs.
+          {homeContents[26]}
           </h1>
           <div className="font-semibold text-slate-500">
             <div className="flex items-center mb-10">
@@ -56,7 +86,7 @@ const Fourthsec = () => {
               src="/fourthsec.svg"
               alt="Image Description"
               width={500}
-              height={300} 
+              height={300}
               />
           </div>
         </section>

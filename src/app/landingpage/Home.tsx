@@ -1,8 +1,43 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 import Image from "next/legacy/image";
 import Link from "next/link";
 
+interface HomeContent {
+  id: number;
+  contentName: string;
+  content: string;
+}
+
 const Home = () => {
+  const [homeContents, setHomeContents] = useState<{
+    [key: number]: string;
+  }>({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "/api/landingpagecontent/landingpagehomecontent"
+        );
+        const data = await response.json();
+        const homes: HomeContent[] = data.homeContent;
+
+        // Create an object to store Home contents by ID
+        const contents: { [key: number]: string } = {};
+        for (const home of homes) {
+          contents[home.id] = home.content;
+        }
+        setHomeContents(contents);
+      } catch (error) {
+        console.error("Error fetching Home content:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  
   return (
     <div className="select-none bg-blue-600">
       <div className="max-w-screen-xl mx-auto">
@@ -10,23 +45,19 @@ const Home = () => {
           <div className="pt-2 pb-10">
             <div className="pt-[20px] max-w-none lg:max-w-none lg:pl-10 lg:pt-10">
               <h1 className="text-3xl text-center font-extrabold text-white mb-2 sm:text-4xl lg:text-start lg:text-[40px] xl:text-5xl">
-                AFFORDABLE SMALL
+                {homeContents[1]}
               </h1>
+              <div className="flex items-center justify-center gap-2 text-center">
               <h1 className="text-3xl text-center font-extrabold text-white mb-2 sm:text-4xl lg:text-start lg:text-[40px] xl:text-5xl">
-                BUSINESS{" "}
-                <span className="bg-white px-1 w-6 text-blue-600 rounded-md">
-                  ENTERPRISE
-                </span>
+              {homeContents[2]}
               </h1>
+              <h1 className="text-3xl bg-white px-1 font-extrabold text-blue-600 rounded-md mb-2 sm:text-4xl lg:text-start lg:text-[40px] xl:text-5xl">{homeContents[3]}</h1>
+              </div>
               <h1 className="text-3xl text-center font-extrabold text-white sm:text-4xl lg:text-start lg:text-[40px] xl:text-5xl">
-                SOFTWARE
+              {homeContents[4]}
               </h1>
               <p className="text-white mt-7 text-sm text-justify mx-2 max-w-none sm:text-lg lg:mx-0 lg:max-w-[500px]">
-                Empower your business with cutting-edge tools designed to
-                streamline operations, boost productivity, and maximize growth
-                without breaking the bank. Our software is tailored to meet the
-                unique needs of small businesses, offering a comprehensive suite
-                of features that are easy to use and implement.
+              {homeContents[5]}
               </p>
             </div>
             <div className="mt-9 flex gap-16 justify-center max-w-none mx-1 lg:justify-start lg:pl-10">
